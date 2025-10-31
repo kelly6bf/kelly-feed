@@ -12,6 +12,7 @@ import site.study.user.domain.User;
 
 import java.util.NoSuchElementException;
 
+//@Service
 public class PostService {
 
     private final UserService userService;

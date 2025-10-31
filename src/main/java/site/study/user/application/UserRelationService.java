@@ -1,9 +1,11 @@
 package site.study.user.application;
 
+import org.springframework.stereotype.Service;
 import site.study.user.application.dto.FollowUserRequestDto;
 import site.study.user.application.port.UserRelationRepository;
 import site.study.user.domain.User;
 
+@Service
 public class UserRelationService {
 
     private final UserService userService;
