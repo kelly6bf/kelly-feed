@@ -1,4 +1,4 @@
-package site.study.post.repository.entity.comment;
+package site.study.post.repository.jpa.entity.comment;
 
 import jakarta.persistence.ConstraintMode;
 import jakarta.persistence.Entity;
@@ -12,11 +12,11 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import site.study.common.repository.entity.TimeBaseEntity;
+import site.study.common.repository.jpa.entity.TimeBaseEntity;
 import site.study.post.domain.comment.Comment;
 import site.study.post.domain.content.CommentContent;
-import site.study.post.repository.entity.post.PostEntity;
-import site.study.user.repository.entity.UserEntity;
+import site.study.post.repository.jpa.entity.post.PostEntity;
+import site.study.user.repository.jpa.entity.UserEntity;
 
 @Entity
 @Table(name="community_commnent")

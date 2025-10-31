@@ -5,7 +5,6 @@ import site.study.user.domain.User;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 public class FakeUserRepository implements UserRepository {
 
@@ -24,7 +23,7 @@ public class FakeUserRepository implements UserRepository {
     }
 
     @Override
-    public Optional<User> findById(final Long id) {
-        return Optional.ofNullable(store.get(id));
+    public User findById(final Long id) {
+        return store.get(id);
     }
 }

@@ -1,11 +1,11 @@
-package site.study.post.repository.entity.like;
+package site.study.post.repository.jpa.entity.like;
 
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import site.study.common.repository.entity.TimeBaseEntity;
+import site.study.common.repository.jpa.entity.TimeBaseEntity;
 import site.study.post.domain.Post;
 import site.study.post.domain.comment.Comment;
 import site.study.user.domain.User;

@@ -1,4 +1,4 @@
-package site.study.common.repository.entity;
+package site.study.common.repository.jpa.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;

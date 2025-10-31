@@ -1,4 +1,4 @@
-package site.study.user.repository.entity;
+package site.study.user.repository.jpa.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,7 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import site.study.common.domain.PositiveIntegerCounter;
-import site.study.common.repository.entity.TimeBaseEntity;
+import site.study.common.repository.jpa.entity.TimeBaseEntity;
 import site.study.user.domain.User;
 import site.study.user.domain.UserInfo;
 

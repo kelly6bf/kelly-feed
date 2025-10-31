@@ -1,4 +1,4 @@
-package site.study.post.repository.entity.like;
+package site.study.user.repository.jpa.entity;
 
 import jakarta.persistence.Embeddable;
 import lombok.AccessLevel;
@@ -10,9 +10,8 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class LikeId {
+public class UserRelationId {
 
-    private Long targetId;
-    private Long userId;
-    private String targetType;
+    private Long followingUserId;
+    private Long followerUserId;
 }

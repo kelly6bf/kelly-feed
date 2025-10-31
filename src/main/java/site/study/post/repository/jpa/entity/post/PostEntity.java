@@ -1,4 +1,4 @@
-package site.study.post.repository.entity.post;
+package site.study.post.repository.jpa.entity.post;
 
 import jakarta.persistence.ConstraintMode;
 import jakarta.persistence.Convert;
@@ -15,11 +15,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
 import site.study.common.domain.PositiveIntegerCounter;
-import site.study.common.repository.entity.TimeBaseEntity;
+import site.study.common.repository.jpa.entity.TimeBaseEntity;
 import site.study.post.domain.Post;
 import site.study.post.domain.PostPublicationState;
 import site.study.post.domain.content.PostContent;
-import site.study.user.repository.entity.UserEntity;
+import site.study.user.repository.jpa.entity.UserEntity;
 
 @Entity
 @Table(name="community_post")

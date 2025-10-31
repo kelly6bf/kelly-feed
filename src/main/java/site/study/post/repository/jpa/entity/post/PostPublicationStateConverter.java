@@ -1,4 +1,4 @@
-package site.study.post.repository.entity.post;
+package site.study.post.repository.jpa.entity.post;
 
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;

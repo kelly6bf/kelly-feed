@@ -5,8 +5,6 @@ import site.study.user.application.port.UserRepository;
 import site.study.user.domain.User;
 import site.study.user.domain.UserInfo;
 
-import java.util.NoSuchElementException;
-
 public class UserService {
 
     private final UserRepository userRepository;
@@ -22,7 +20,6 @@ public class UserService {
     }
 
     public User getUser(final Long userId) {
-        return userRepository.findById(userId)
-            .orElseThrow(NoSuchElementException::new);
+        return userRepository.findById(userId);
     }
 }
