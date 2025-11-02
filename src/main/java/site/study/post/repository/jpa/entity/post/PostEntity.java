@@ -39,18 +39,18 @@ public class PostEntity extends TimeBaseEntity {
     private String content;
 
     @Convert(converter = PostPublicationStateConverter.class)
-    private PostPublicationState publicationState;
-    private Integer likeCounter;
+    private PostPublicationState state;
+    private Integer likeCount;
 
     @ColumnDefault("0")
-    private int commentCounter;
+    private int commentCount;
 
     public PostEntity(Post post) {
         this.id = post.getId();
         this.author = new UserEntity(post.getAuthor());
         this.content = post.getContentText();
-        this.publicationState = post.getState();
-        this.likeCounter = post.getLikeCount();
+        this.state = post.getState();
+        this.likeCount = post.getLikeCount();
     }
 
     public Post toPost() {
@@ -58,8 +58,8 @@ public class PostEntity extends TimeBaseEntity {
             id,
             author.toUser(),
             new PostContent(content),
-            new PositiveIntegerCounter(likeCounter),
-            publicationState
+            new PositiveIntegerCounter(likeCount),
+            state
         );
     }
 }

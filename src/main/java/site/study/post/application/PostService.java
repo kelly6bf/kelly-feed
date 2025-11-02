@@ -1,5 +1,6 @@
 package site.study.post.application;
 
+import org.springframework.stereotype.Service;
 import site.study.post.application.dto.CreatePostRequestDto;
 import site.study.post.application.dto.LikeRequestDto;
 import site.study.post.application.dto.UpdatePostRequestDto;
@@ -10,9 +11,7 @@ import site.study.post.domain.content.PostContent;
 import site.study.user.application.UserService;
 import site.study.user.domain.User;
 
-import java.util.NoSuchElementException;
-
-//@Service
+@Service
 public class PostService {
 
     private final UserService userService;
@@ -26,8 +25,7 @@ public class PostService {
     }
 
     public Post getPost(final Long id) {
-        return postRepository.findById(id)
-            .orElseThrow(NoSuchElementException::new);
+        return postRepository.findById(id);
     }
 
     public Post createPost(final CreatePostRequestDto requestDto) {
@@ -37,8 +35,8 @@ public class PostService {
         return postRepository.save(post);
     }
 
-    public Post updatePost(final UpdatePostRequestDto requestDto) {
-        final Post post = getPost(requestDto.postId());
+    public Post updatePost(final Long postId, final UpdatePostRequestDto requestDto) {
+        final Post post = getPost(postId);
         final User user = userService.getUser(requestDto.userId());
 
         post.updatePost(user, requestDto.content(), requestDto.state());

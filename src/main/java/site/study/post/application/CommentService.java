@@ -1,5 +1,6 @@
 package site.study.post.application;
 
+import org.springframework.stereotype.Service;
 import site.study.post.application.dto.CreateCommentRequestDto;
 import site.study.post.application.dto.LikeRequestDto;
 import site.study.post.application.dto.UpdateCommentRequestDto;
@@ -11,8 +12,7 @@ import site.study.post.domain.content.CommentContent;
 import site.study.user.application.UserService;
 import site.study.user.domain.User;
 
-import java.util.NoSuchElementException;
-
+@Service
 public class CommentService {
 
     private final UserService userService;
@@ -33,8 +33,7 @@ public class CommentService {
     }
 
     public Comment getComment(final Long id) {
-        return commentRepository.findById(id)
-            .orElseThrow(NoSuchElementException::new);
+        return commentRepository.findById(id);
     }
 
     public Comment createComment(final CreateCommentRequestDto requestDto) {
@@ -46,8 +45,8 @@ public class CommentService {
         return commentRepository.save(comment);
     }
 
-    public Comment updateComment(final UpdateCommentRequestDto requestDto) {
-        final Comment comment = getComment(requestDto.commentId());
+    public Comment updateComment(final Long commentId, final UpdateCommentRequestDto requestDto) {
+        final Comment comment = getComment(commentId);
         final User author = userService.getUser(requestDto.userId());
 
         comment.updateComment(author, requestDto.content());

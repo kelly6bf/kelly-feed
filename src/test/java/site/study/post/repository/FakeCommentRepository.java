@@ -5,15 +5,14 @@ import site.study.post.domain.comment.Comment;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 public class FakeCommentRepository implements CommentRepository {
 
     private final Map<Long, Comment> store = new HashMap<>();
 
     @Override
-    public Optional<Comment> findById(Long id) {
-        return Optional.ofNullable(store.get(id));
+    public Comment findById(Long id) {
+        return store.get(id);
     }
 
     @Override
