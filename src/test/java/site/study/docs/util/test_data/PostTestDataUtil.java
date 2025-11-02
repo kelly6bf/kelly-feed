@@ -1,4 +1,4 @@
-package site.study.docs.util;
+package site.study.docs.util.test_data;
 
 import site.study.common.domain.PositiveIntegerCounter;
 import site.study.post.application.dto.CreatePostRequestDto;

@@ -4,7 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;
 import org.springframework.restdocs.payload.JsonFieldType;
-import site.study.docs.util.PostTestDataUtil;
+import site.study.docs.util.test_data.PostTestDataUtil;
 import site.study.docs.util.RestDocsSupport;
 import site.study.post.application.PostService;
 import site.study.post.application.dto.CreatePostRequestDto;

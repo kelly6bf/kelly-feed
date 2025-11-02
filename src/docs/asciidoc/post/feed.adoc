@@ -1,0 +1,14 @@
+[[feed-api]]
+== 피드 API
+
+[[get-feed-post-list]]
+=== 내가 팔로우 중인 회원의 피드 전체 조회
+
+==== HTTP Request
+include::{snippets}/feed-controller-docs-test/get-post-feed-list/http-request.adoc[]
+include::{snippets}/feed-controller-docs-test/get-post-feed-list/path-parameters.adoc[]
+include::{snippets}/feed-controller-docs-test/get-post-feed-list/request-fields.adoc[]
+
+==== HTTP Response
+include::{snippets}/feed-controller-docs-test/get-post-feed-list/http-response.adoc[]
+include::{snippets}/feed-controller-docs-test/get-post-feed-list/response-fields.adoc[]

@@ -14,3 +14,4 @@ endif::[]
 :docinfo: shared-head
 
 include::post/post.adoc[]
+include::post/feed.adoc[]
