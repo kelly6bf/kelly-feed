@@ -181,4 +181,6 @@ docker/data/**
 !docker/data/mysql/config/
 !docker/data/mysql/config/**
 
+/src/main/resources/static/docs/index.html
+
 # End of https://www.toptal.com/developers/gitignore/api/java,gradle,intellij+all,macos
