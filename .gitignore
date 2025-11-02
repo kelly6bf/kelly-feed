@@ -175,4 +175,10 @@ gradle-app.setting
 # Java heap dump
 *.hprof
 
+### Docker
+docker/data/**
+!docker/data/mysql/
+!docker/data/mysql/config/
+!docker/data/mysql/config/**
+
 # End of https://www.toptal.com/developers/gitignore/api/java,gradle,intellij+all,macos
