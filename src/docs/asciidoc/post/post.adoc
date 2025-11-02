@@ -1,0 +1,13 @@
+[[post-api]]
+== 게시글 API
+
+[[create-post]]
+=== 게시글 생성
+
+==== HTTP Request
+include::{snippets}/post-controller-docs-test/create-post/http-request.adoc[]
+include::{snippets}/post-controller-docs-test/create-post/request-fields.adoc[]
+
+==== HTTP Response
+include::{snippets}/post-controller-docs-test/create-post/http-response.adoc[]
+include::{snippets}/post-controller-docs-test/create-post/response-fields.adoc[]

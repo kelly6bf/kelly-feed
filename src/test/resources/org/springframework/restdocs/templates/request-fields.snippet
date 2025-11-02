@@ -1,0 +1,16 @@
+===== Request Fields
+|===
+|Description|Field|Type|Required|Constraint|Options
+
+{{#fields}}
+
+|{{#tableCellContent}}{{description}}{{/tableCellContent}}
+|{{#tableCellContent}}`+{{path}}+`{{/tableCellContent}}
+|{{#tableCellContent}}`+{{type}}+`{{/tableCellContent}}
+|{{#tableCellContent}}{{#optional}}X{{/optional}}{{^optional}}O{{/optional}}{{/tableCellContent}}
+|{{#tableCellContent}}{{#constraints}}{{.}}X{{/constraints}}{{^constraints}}-{{/constraints}}{{/tableCellContent}}
+|{{#tableCellContent}}{{#options}}{{.}}{{/options}}{{^options}}-{{/options}}{{/tableCellContent}}
+
+{{/fields}}
+
+|===
