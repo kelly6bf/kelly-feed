@@ -30,7 +30,7 @@
 3. 존재하는 게시물인지 검증한다.  -> `Service, Repository`
 4. 입력받은 댓글 정보 유효성 검증  -> `Domain`
    - 댓글 본문 길이가 1 ~ 100인지 검증 
-5. DB에 입력받은 댓글 정보 저장  -> `Repository
+5. DB에 입력받은 댓글 정보 저장  -> `Repository`
 
 ## 게시물/댓글 좋아요
 1. 유저 id와 게시물/댓글 id를 입력받는다.  -> `Controller`
