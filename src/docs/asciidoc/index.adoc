@@ -15,3 +15,4 @@ endif::[]
 
 include::post/post.adoc[]
 include::post/feed.adoc[]
+include::post/comment.adoc[]

@@ -21,7 +21,7 @@ import static org.springframework.restdocs.request.RequestDocumentation.pathPara
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@DisplayName("피드 API 문서화 테스트")
+@DisplayName("게시글 피드 API 문서화 테스트")
 public class FeedControllerDocsTest extends RestDocsSupport {
 
     private final UserPostQueueQueryRepository userPostQueueQueryRepository = mock(UserPostQueueQueryRepository.class);

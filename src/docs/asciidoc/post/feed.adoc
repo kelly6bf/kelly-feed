@@ -1,5 +1,5 @@
 [[feed-api]]
-== 피드 API
+== 게시글 피드 API
 
 [[get-feed-post-list]]
 === 내가 팔로우 중인 회원의 피드 전체 조회

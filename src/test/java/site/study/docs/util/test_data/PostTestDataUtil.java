@@ -21,7 +21,7 @@ public class PostTestDataUtil {
         );
     }
 
-    public static Post createPostByCUpdatePostRequestDto(final UpdatePostRequestDto dto) {
+    public static Post createPostByUpdatePostRequestDto(final UpdatePostRequestDto dto) {
         final User user = new User(dto.userId(), new UserInfo("kelly", "https://image-kelly.site"));
         return new Post(
             1L,
