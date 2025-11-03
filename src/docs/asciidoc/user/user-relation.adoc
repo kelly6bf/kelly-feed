@@ -1,0 +1,24 @@
+[[user-relation-api]]
+== 회원 릴레이션 API
+
+[[follow-user]]
+=== 회원 팔로우
+
+==== HTTP Request
+include::{snippets}/user-relation-controller-docs-test/follow-user/http-request.adoc[]
+include::{snippets}/user-relation-controller-docs-test/follow-user/request-fields.adoc[]
+
+==== HTTP Response
+include::{snippets}/user-relation-controller-docs-test/follow-user/http-response.adoc[]
+include::{snippets}/user-relation-controller-docs-test/follow-user/response-fields.adoc[]
+
+[[unfollow-user]]
+=== 회원 언팔로우
+
+==== HTTP Request
+include::{snippets}/user-relation-controller-docs-test/unfollow-user/http-request.adoc[]
+include::{snippets}/user-relation-controller-docs-test/unfollow-user/request-fields.adoc[]
+
+==== HTTP Response
+include::{snippets}/user-relation-controller-docs-test/unfollow-user/http-response.adoc[]
+include::{snippets}/user-relation-controller-docs-test/unfollow-user/response-fields.adoc[]
