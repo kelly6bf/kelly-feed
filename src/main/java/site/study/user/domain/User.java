@@ -12,12 +12,26 @@ public class User {
     private final PositiveIntegerCounter followerCount;
 
     public User(final Long id, final UserInfo userInfo) {
+        this(
+            id,
+            userInfo,
+            new PositiveIntegerCounter(),
+            new PositiveIntegerCounter()
+        );
+    }
+
+    public User(
+        final Long id,
+        final UserInfo userInfo,
+        final PositiveIntegerCounter followingCount,
+        final PositiveIntegerCounter followerCount
+    ) {
         validateUserInfo(userInfo);
 
         this.id = id;
         this.userInfo = userInfo;
-        this.followingCount = new PositiveIntegerCounter();
-        this.followerCount = new PositiveIntegerCounter();
+        this.followingCount = followingCount;
+        this.followerCount = followerCount;
     }
 
     private void validateUserInfo(final UserInfo userInfo) {
@@ -58,6 +72,14 @@ public class User {
 
     public UserInfo getUserInfo() {
         return userInfo;
+    }
+
+    public String getName() {
+        return userInfo.getName();
+    }
+
+    public String getProfileImage() {
+        return userInfo.getProfileImageUrl();
     }
 
     public int getFollowingCount() {

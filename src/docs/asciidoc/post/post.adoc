@@ -1,0 +1,47 @@
+[[post-api]]
+== 게시글 API
+
+[[create-post]]
+=== 게시글 생성
+
+==== HTTP Request
+include::{snippets}/post-controller-docs-test/create-post/http-request.adoc[]
+include::{snippets}/post-controller-docs-test/create-post/request-fields.adoc[]
+
+==== HTTP Response
+include::{snippets}/post-controller-docs-test/create-post/http-response.adoc[]
+include::{snippets}/post-controller-docs-test/create-post/response-fields.adoc[]
+
+[[update-post]]
+=== 게시글 수정
+
+==== HTTP Request
+include::{snippets}/post-controller-docs-test/update-post/http-request.adoc[]
+include::{snippets}/post-controller-docs-test/update-post/path-parameters.adoc[]
+include::{snippets}/post-controller-docs-test/update-post/request-fields.adoc[]
+
+==== HTTP Response
+include::{snippets}/post-controller-docs-test/update-post/http-response.adoc[]
+include::{snippets}/post-controller-docs-test/update-post/response-fields.adoc[]
+
+[[like-post]]
+=== 게시글 좋아요 생성
+
+==== HTTP Request
+include::{snippets}/post-controller-docs-test/like-post/http-request.adoc[]
+include::{snippets}/post-controller-docs-test/like-post/request-fields.adoc[]
+
+==== HTTP Response
+include::{snippets}/post-controller-docs-test/like-post/http-response.adoc[]
+include::{snippets}/post-controller-docs-test/like-post/response-fields.adoc[]
+
+[[unlike-post]]
+=== 게시글 좋아요 삭제
+
+==== HTTP Request
+include::{snippets}/post-controller-docs-test/unlike-post/http-request.adoc[]
+include::{snippets}/post-controller-docs-test/unlike-post/request-fields.adoc[]
+
+==== HTTP Response
+include::{snippets}/post-controller-docs-test/unlike-post/http-response.adoc[]
+include::{snippets}/post-controller-docs-test/unlike-post/response-fields.adoc[]

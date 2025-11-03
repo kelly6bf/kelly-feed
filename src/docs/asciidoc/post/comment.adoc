@@ -1,0 +1,47 @@
+[[comment-api]]
+== 게시글 댓글 API
+
+[[create-commentt]]
+=== 게시글 댓글 생성
+
+==== HTTP Request
+include::{snippets}/comment-controller-docs-test/create-comment/http-request.adoc[]
+include::{snippets}/comment-controller-docs-test/create-comment/request-fields.adoc[]
+
+==== HTTP Response
+include::{snippets}/comment-controller-docs-test/create-comment/http-response.adoc[]
+include::{snippets}/comment-controller-docs-test/create-comment/response-fields.adoc[]
+
+[[update-comment]]
+=== 게시글 댓글 수정
+
+==== HTTP Request
+include::{snippets}/comment-controller-docs-test/update-comment/http-request.adoc[]
+include::{snippets}/comment-controller-docs-test/update-comment/path-parameters.adoc[]
+include::{snippets}/comment-controller-docs-test/update-comment/request-fields.adoc[]
+
+==== HTTP Response
+include::{snippets}/comment-controller-docs-test/update-comment/http-response.adoc[]
+include::{snippets}/comment-controller-docs-test/update-comment/response-fields.adoc[]
+
+[[like-comment]]
+=== 게시글 댓글 좋아요 생성
+
+==== HTTP Request
+include::{snippets}/comment-controller-docs-test/like-comment/http-request.adoc[]
+include::{snippets}/comment-controller-docs-test/like-comment/request-fields.adoc[]
+
+==== HTTP Response
+include::{snippets}/comment-controller-docs-test/like-comment/http-response.adoc[]
+include::{snippets}/comment-controller-docs-test/like-comment/response-fields.adoc[]
+
+[[unlike-comment]]
+=== 게시글 댓글 좋아요 삭제
+
+==== HTTP Request
+include::{snippets}/comment-controller-docs-test/unlike-comment/http-request.adoc[]
+include::{snippets}/comment-controller-docs-test/unlike-comment/request-fields.adoc[]
+
+==== HTTP Response
+include::{snippets}/comment-controller-docs-test/unlike-comment/http-response.adoc[]
+include::{snippets}/comment-controller-docs-test/unlike-comment/response-fields.adoc[]

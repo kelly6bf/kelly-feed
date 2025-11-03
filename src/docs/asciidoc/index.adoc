@@ -1,0 +1,20 @@
+ifndef::snippets[]
+:snippets: ../../build/generated-snippets
+endif::[]
+= Kelly Feed API 문서
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 2
+:sectlinks:
+ifndef::docinfodir[]
+:docinfodir: ./common
+endif::[]
+:docinfo: shared-head
+
+include::user/user.adoc[]
+include::user/user-relation.adoc[]
+include::post/post.adoc[]
+include::post/feed.adoc[]
+include::post/comment.adoc[]
