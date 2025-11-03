@@ -5,6 +5,13 @@ spring:
   jpa:
     open-in-view: false
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus
+      base-path: /api/actuator
+
 decorator:
   datasource:
     p6spy:
