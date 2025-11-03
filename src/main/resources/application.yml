@@ -1,15 +1,11 @@
 spring:
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:33310/community_feed
-    username: root
-    password: root
+  profiles:
+    active: local
 
   jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-    properties:
-      hibernate:
-        format_sql: true
     open-in-view: false
+
+decorator:
+  datasource:
+    p6spy:
+      enable-logging: false

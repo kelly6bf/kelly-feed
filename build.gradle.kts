@@ -36,6 +36,15 @@ dependencies {
     annotationProcessor("jakarta.annotation:jakarta.annotation-api")
     annotationProcessor("jakarta.persistence:jakarta.persistence-api")
 
+    // Actuator
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
+
+    // Prometheus
+    implementation("io.micrometer:micrometer-registry-prometheus")
+
+    // P6Spy
+    implementation("com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.12.0")
+
     // MySQL
     runtimeOnly("com.mysql:mysql-connector-j")
 
