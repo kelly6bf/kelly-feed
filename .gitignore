@@ -177,10 +177,21 @@ gradle-app.setting
 
 ### Docker
 docker/data/**
+
 !docker/data/mysql/
 !docker/data/mysql/config/
 !docker/data/mysql/config/**
 
+!docker/data/loki/
+!docker/data/loki/loki-config.yml
+
+!docker/data/prometheus/
+!docker/data/prometheus/prometheus.yml
+
+!docker/data/promtail/
+!docker/data/promtail/promtail-config.yml
+
+### API Docs
 /src/main/resources/static/docs/index.html
 
 # End of https://www.toptal.com/developers/gitignore/api/java,gradle,intellij+all,macos
