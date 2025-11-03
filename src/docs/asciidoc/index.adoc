@@ -13,8 +13,8 @@ ifndef::docinfodir[]
 endif::[]
 :docinfo: shared-head
 
+include::user/user.adoc[]
+include::user/user-relation.adoc[]
 include::post/post.adoc[]
 include::post/feed.adoc[]
 include::post/comment.adoc[]
-include::user/user.adoc[]
-include::user/user-relation.adoc[]
