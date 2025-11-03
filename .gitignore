@@ -183,13 +183,13 @@ docker/data/**
 !docker/data/mysql/config/**
 
 !docker/data/loki/
-!docker/data/loki/loki-config.yml
+!docker/data/loki/config/loki-config.yml
 
 !docker/data/prometheus/
-!docker/data/prometheus/prometheus.yml
+!docker/data/prometheus/config/prometheus.yml
 
 !docker/data/promtail/
-!docker/data/promtail/promtail-config.yml
+!docker/data/promtail/config/promtail-config.yml
 
 ### API Docs
 /src/main/resources/static/docs/index.html
