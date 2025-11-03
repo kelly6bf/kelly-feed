@@ -48,6 +48,7 @@ dependencies {
     // MySQL
     runtimeOnly("com.mysql:mysql-connector-j")
 
+    // Spring REST Docs
     asciidoctorExtensions?.invoke("org.springframework.restdocs:spring-restdocs-asciidoctor")
     testImplementation("org.springframework.restdocs:spring-restdocs-mockmvc")
 
@@ -76,7 +77,7 @@ tasks.register<Test>("restDocsTest") {
     outputs.dir(snippetsDir)
     useJUnitPlatform()
     filter {
-        includeTestsMatching("*.docs.*")
+        includeTestsMatching("site.study.docs.*")
     }
     onlyIf { activeProfile != "prod" }
 }
@@ -113,6 +114,11 @@ tasks.register<Copy>("copyDocument") {
     dependsOn(tasks.named("cleanCopiedDocs"), tasks.named("asciidoctor"))
     from("build/docs/asciidoc")
     into("src/main/resources/static/docs")
+}
+
+tasks.bootJar {
+    dependsOn(tasks.named("copyDocument"))
+    archiveFileName.set("${rootProject.name}.jar")
 }
 
 // ✅ build 시 자동 복사

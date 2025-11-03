@@ -1,7 +1,19 @@
 services:
+  springboot-app:
+    image: kelly6bf/kelly-feed:test01
+    container_name: kelly-feed_springboot-app
+    ports:
+      - "8090:8080"
+    volumes:
+      - ./data/springboot-app/logs:/app/logs
+    environment:
+      TZ: "Asia/Seoul"
+    depends_on:
+      - mysql
+
   mysql:
     image: mysql:8.0
-    container_name: kelly_feed_mysql
+    container_name: kelly-feed_mysql
     ports:
       - "33310:3306"
     volumes:
