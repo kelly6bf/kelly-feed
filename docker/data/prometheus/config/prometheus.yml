@@ -1,0 +1,10 @@
+global:
+  scrape_interval: 15s
+  external_labels:
+    monitor: 'kelly-feed_monitor'
+
+scrape_configs:
+  - job_name: 'local-test-api-server'
+    metrics_path: '/api/actuator/prometheus'
+    static_configs:
+      - targets: ['springboot-app:8080']
