@@ -197,4 +197,7 @@ docker/data/**
 ### API Docs
 /src/main/resources/static/docs/index.html
 
+### node.js
+/k6/common/node_modules/
+
 # End of https://www.toptal.com/developers/gitignore/api/java,gradle,intellij+all,macos
