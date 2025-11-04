@@ -26,6 +26,9 @@ scrape_configs:
       - multiline:
           firstline: '^\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\]'
           max_wait_time: 500ms
+      - labels:
+          level:
+          traceId:
 
   # === DEBUG ===
   - job_name: "debug-logs"
@@ -40,6 +43,9 @@ scrape_configs:
       - multiline:
           firstline: '^\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\]'
           max_wait_time: 500ms
+      - labels:
+          level:
+          traceId:
 
   # === INFO ===
   - job_name: "info-logs"
@@ -54,6 +60,9 @@ scrape_configs:
       - multiline:
           firstline: '^\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\]'
           max_wait_time: 500ms
+      - labels:
+          level:
+          traceId:
 
   # === WARN ===
   - job_name: "warn-logs"
@@ -68,6 +77,9 @@ scrape_configs:
       - multiline:
           firstline: '^\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\]'
           max_wait_time: 500ms
+      - labels:
+          level:
+          traceId:
 
   # === ERROR ===
   - job_name: "error-logs"
@@ -82,6 +94,9 @@ scrape_configs:
       - multiline:
           firstline: '^\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\]'
           max_wait_time: 500ms
+      - labels:
+          level:
+          traceId:
 
   # === SQL ===
   - job_name: "sql-logs"
@@ -97,3 +112,6 @@ scrape_configs:
           # SQL 로그는 초 단위 시간만 있으므로 날짜 인식 제외
           firstline: '^\[\d{2}:\d{2}:\d{2}\]\s*\|\s*\[traceId:[0-9a-fA-F-]+\]\s*\|\s*\[(statement|commit|rollback|batch|result|error|debug|info)\]'
           max_wait_time: 1s
+      - labels:
+          level:
+          traceId:
