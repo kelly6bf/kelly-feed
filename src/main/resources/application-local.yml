@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:33310/community_feed
+    username: root
+    password: root
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+logging:
+  config: classpath:logback/logback-local.xml
+  level:
+    root: info
+    site.study: trace
+
+decorator:
+  datasource:
+    p6spy:
+      enable-logging: true

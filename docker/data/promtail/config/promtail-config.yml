@@ -1,0 +1,117 @@
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+  # ✅ Promtail 서버 안정성 향상
+  http_server_read_timeout: 1m
+  http_server_write_timeout: 1m
+
+positions:
+  filename: /tmp/positions.yaml
+
+clients:
+  - url: http://loki:3100/loki/api/v1/push
+
+scrape_configs:
+  # === TRACE ===
+  - job_name: "trace-logs"
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: "springboot-app"
+          log_level: "TRACE"
+          server_type: "dev"
+          __path__: "/logs/trace/trace*.log"
+    pipeline_stages:
+      - multiline:
+          firstline: '^\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\]'
+          max_wait_time: 500ms
+      - labels:
+          level:
+          traceId:
+
+  # === DEBUG ===
+  - job_name: "debug-logs"
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: "springboot-app"
+          log_level: "DEBUG"
+          server_type: "dev"
+          __path__: "/logs/debug/debug*.log"
+    pipeline_stages:
+      - multiline:
+          firstline: '^\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\]'
+          max_wait_time: 500ms
+      - labels:
+          level:
+          traceId:
+
+  # === INFO ===
+  - job_name: "info-logs"
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: "springboot-app"
+          log_level: "INFO"
+          server_type: "dev"
+          __path__: "/logs/info/info*.log"
+    pipeline_stages:
+      - multiline:
+          firstline: '^\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\]'
+          max_wait_time: 500ms
+      - labels:
+          level:
+          traceId:
+
+  # === WARN ===
+  - job_name: "warn-logs"
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: "springboot-app"
+          log_level: "WARN"
+          server_type: "dev"
+          __path__: "/logs/warn/warn*.log"
+    pipeline_stages:
+      - multiline:
+          firstline: '^\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\]'
+          max_wait_time: 500ms
+      - labels:
+          level:
+          traceId:
+
+  # === ERROR ===
+  - job_name: "error-logs"
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: "springboot-app"
+          log_level: "ERROR"
+          server_type: "dev"
+          __path__: "/logs/error/error*.log"
+    pipeline_stages:
+      - multiline:
+          firstline: '^\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\]'
+          max_wait_time: 500ms
+      - labels:
+          level:
+          traceId:
+
+  # === SQL ===
+  - job_name: "sql-logs"
+    static_configs:
+      - targets: [localhost]
+        labels:
+          job: "springboot-app"
+          log_level: "SQL"
+          server_type: "dev"
+          __path__: "/logs/sql/sql*.log"
+    pipeline_stages:
+      - multiline:
+          # SQL 로그는 초 단위 시간만 있으므로 날짜 인식 제외
+          firstline: '^\[\d{2}:\d{2}:\d{2}\]\s*\|\s*\[traceId:[0-9a-fA-F-]+\]\s*\|\s*\[(statement|commit|rollback|batch|result|error|debug|info)\]'
+          max_wait_time: 1s
+      - labels:
+          level:
+          traceId:

@@ -1,7 +1,32 @@
 services:
+  springboot-app:
+    image: kelly6bf/kelly-feed:test01
+    container_name: kelly-feed_springboot-app
+    ports:
+      - "8090:8080"
+    volumes:
+      - ./data/springboot-app/logs:/app/logs
+    environment:
+      TZ: "Asia/Seoul"
+    depends_on:
+      - mysql
+
+  promtail:
+    image: grafana/promtail:latest
+    container_name: kelly-feed_promtail
+    ports:
+      - "9080:9080"
+    volumes:
+      - ./data/springboot-app/logs:/logs
+      - ./data/promtail/config/promtail-config.yml:/etc/promtail/config.yml
+    environment:
+      TZ: "Asia/Seoul"
+    command:
+      - -config.file=/etc/promtail/config.yml
+
   mysql:
     image: mysql:8.0
-    container_name: kelly_feed_mysql
+    container_name: kelly-feed_mysql
     ports:
       - "33310:3306"
     volumes:
@@ -15,3 +40,48 @@ services:
     command:
       - --character-set-server=utf8mb4
       - --collation-server=utf8mb4_unicode_ci
+
+  loki:
+    image: grafana/loki:latest
+    container_name: kelly-feed_loki
+    ports:
+      - "3100:3100"
+    volumes:
+      - ./data/loki/config/loki-config.yml:/etc/loki/local-config.yml
+      - ./data/loki/loki:/loki
+    command: -config.file=/etc/loki/local-config.yml
+    environment:
+      TZ: "Asia/Seoul"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "3"
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: kelly-feed_prometheus
+    environment:
+      TZ: "Asia/Seoul"
+    volumes:
+      - ./data/prometheus/config/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./data/prometheus/prometheus:/prometheus
+    ports:
+      - "9090:9090"
+
+  grafana:
+    image: grafana/grafana-oss:latest
+    container_name: kelly-feed_grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./data/grafana/grafana-storage:/var/lib/grafana
+    environment:
+      TZ: "Asia/Seoul"
+      GF_SERVER_ROOT_URL: "/grafana"
+      GF_SERVER_SERVE_FROM_SUB_PATH: "true"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "100m"
+        max-file: "3"

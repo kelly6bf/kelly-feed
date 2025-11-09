@@ -36,9 +36,19 @@ dependencies {
     annotationProcessor("jakarta.annotation:jakarta.annotation-api")
     annotationProcessor("jakarta.persistence:jakarta.persistence-api")
 
+    // Actuator
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
+
+    // Prometheus
+    implementation("io.micrometer:micrometer-registry-prometheus")
+
+    // P6Spy
+    implementation("com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.12.0")
+
     // MySQL
     runtimeOnly("com.mysql:mysql-connector-j")
 
+    // Spring REST Docs
     asciidoctorExtensions?.invoke("org.springframework.restdocs:spring-restdocs-asciidoctor")
     testImplementation("org.springframework.restdocs:spring-restdocs-mockmvc")
 
@@ -67,7 +77,7 @@ tasks.register<Test>("restDocsTest") {
     outputs.dir(snippetsDir)
     useJUnitPlatform()
     filter {
-        includeTestsMatching("*.docs.*")
+        includeTestsMatching("site.study.docs.*")
     }
     onlyIf { activeProfile != "prod" }
 }
@@ -104,6 +114,11 @@ tasks.register<Copy>("copyDocument") {
     dependsOn(tasks.named("cleanCopiedDocs"), tasks.named("asciidoctor"))
     from("build/docs/asciidoc")
     into("src/main/resources/static/docs")
+}
+
+tasks.bootJar {
+    dependsOn(tasks.named("copyDocument"))
+    archiveFileName.set("${rootProject.name}.jar")
 }
 
 // ✅ build 시 자동 복사
