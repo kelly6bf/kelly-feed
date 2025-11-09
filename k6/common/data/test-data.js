@@ -7,9 +7,6 @@ const USER_COUNT_PER_GROUP = 20;
 const TOTAL_ACTIVITY_DATE = 365;  // 총 진행일
 const ONE_DAY_POST_COUNT_PER_USER = 10;
 
-// ===================== 캐싱 =====================
-const CREATED_POST_CACHING = new Map();  // [생성일][유저 ID]
-
 export async function createTestData() {
     // ===================== DB 테이블 CSV Stream =====================
     const community_user_stream = format({ headers: true });
@@ -77,11 +74,6 @@ export async function createTestData() {
             for (let j = 0; j < ONE_DAY_POST_COUNT_PER_USER; j++) {
                 const currentPostId = postId++;
 
-                // 생성된 게시글 캐싱
-                if (j === 0) {
-                    CREATED_POST_CACHING.set(`${dayIndex}-${userId}`, currentPostId);
-                }
-
                 community_post_stream.write({
                     id: currentPostId,
                     author_id: userId,
@@ -127,7 +119,7 @@ export async function createTestData() {
                     continue;
                 }
 
-                const targetPostId = CREATED_POST_CACHING.get(`${dayIndex}-${otherUserId}`);
+                const targetPostId = getFirstPostIdByDayAndUser(dayIndex, otherUserId);
                 community_comment_stream.write({
                     id: commentId++,
                     post_id: targetPostId,
@@ -172,6 +164,14 @@ function getFirstUserIdInGroup(userId) {
 
 function getUserGroupIndex(userId) {
     return Math.floor((userId - 1) / USER_COUNT_PER_GROUP);
+}
+
+function getFirstPostIdByDayAndUser(dayIndex, userId) {
+    return (
+        ((TOTAL_ACTIVITY_DATE - 1 - dayIndex) * TOTAL_USER_COUNT * ONE_DAY_POST_COUNT_PER_USER) +
+        ((userId - 1) * ONE_DAY_POST_COUNT_PER_USER) +
+        1
+    );
 }
 
 function convertDateTimeFormatString(date = new Date()) {

@@ -1,6 +1,7 @@
 import { sleep, check } from 'k6';
 import http from 'k6/http';
 import {API_BASE_URL, parseResponseBody, setRequestHeader} from "../../../../common/api/api-common.js";
+import {getTargetPostList} from "../../../../common/util/util.js";
 
 // N명의 VUser가 동시에 요청
 export const options = {
@@ -36,14 +37,18 @@ export const options = {
 // };
 
 export function setup() {
+    const targetPostList = getTargetPostList(100);
     console.log("⏰ 5초 대기 시작.");
     sleep(5);
     console.log("✅ 5초 대기 완료.\n");
+
+    return {targetPostList};
 }
 
-export default function () {
+export default function (data) {
     const vuIndex = __VU - 1;
-    const response = requestApi(vuIndex);
+    const targetPostId = data.targetPostList[vuIndex];
+    const response = requestApi(vuIndex, targetPostId);
     const responseBody = parseResponseBody(response);
 
     check(null, {
@@ -66,8 +71,8 @@ export default function () {
     sleep(1);
 };
 
-function requestApi(vuIndex) {
+function requestApi(vuIndex, targetPostId) {
     const headers = setRequestHeader();
 
-    return http.get(`${API_BASE_URL}/api/feed/${vuIndex + 1}/comments?userId=${vuIndex + 1}`, {headers});
+    return http.get(`${API_BASE_URL}/api/feed/${targetPostId}/comments?userId=${vuIndex + 1}`, {headers});
 }
